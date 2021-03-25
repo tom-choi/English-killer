@@ -1,0 +1,48 @@
+import time
+import random
+from pynput.keyboard import Controller
+
+keyboard = Controller()  #定位鍵盤
+
+def type_string_with_delay(string):
+    for character in string: 
+        keyboard.type(character) 
+        delay = random.uniform(0, 0.5) #模擬人打字speed
+        time.sleep(delay)
+#設定列表，再分割成字符串^_^       
+str1="""
+it
+can
+be
+used
+in
+english
+online
+but
+only
+in
+mermories
+dictation
+then
+you
+should
+know
+how
+to
+use
+it
+^_^
+"""
+number=0
+strresult=""
+for each in str1:
+    if str1[number] in '1234567890、!"#$%&()*+,…。-./:;<=>?@[\\]^_‘{|}~':
+        strresult=strresult
+    else:
+        strresult=strresult+str1[number]
+    number+=1
+        
+time.sleep(3) #3秒後啟用程序
+type_string_with_delay(strresult)
+#如果出現error，建議在指令台輸入 python -m pip install pynput
+#記得上網下載python Anaconda 環境包就可以使用以上代碼^_^
